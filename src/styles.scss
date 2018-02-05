@@ -20,3 +20,9 @@ body {
 h1, h2, h3, h4 {
     font-weight: normal;
 }
+
+.glyphicon-one-fine-full-dot:before {
+    overflow: hidden;
+    content: "\25cf";
+    font-size: 1.5em;
+}

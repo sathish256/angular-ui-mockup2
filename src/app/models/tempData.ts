@@ -6,4 +6,5 @@ export interface TempData {
     documents: number;
     amount: number;
     status: string;
+    color: string;
 }

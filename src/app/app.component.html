@@ -58,7 +58,7 @@
               <td>{{ data.description }}</td>
               <td>{{ data.documents }}</td>
               <td>{{ data.amount }}</td>
-              <td>{{ data.status }}</td>
+              <td><i class="glyphicon-one-fine-full-dot" [ngStyle]="{'color': data.color}"></i>&nbsp;{{ data.status }}</td>
             </tr>
           </tbody>
         </table>
@@ -92,7 +92,7 @@
                 <div class="row">{{ data.description }}</div>
                 <div class="row">{{ 'Documents: ' + data.documents }}</div>
               </td>
-              <td>{{ data.status }}</td>
+              <td><i class="glyphicon-one-fine-full-dot" [ngStyle]="{'color': data.color}"></i>&nbsp;{{ data.status }}</td>
             </tr>
           </tbody>
         </table>
@@ -112,7 +112,7 @@
         <div class="row" style="padding: 0px 20px">{{ data.amount }}</div>
         <div class="row" style="padding: 0px 20px">{{ data.description }}</div>
         <div class="row" style="padding: 0px 20px">{{ 'Document: ' + data.documents }}</div>
-        <div class="row" style="padding: 0px 20px">{{ data.status }}</div>
+        <div class="row" style="padding: 0px 20px"><i class="glyphicon-one-fine-full-dot" [ngStyle]="{'color': data.color}"></i>&nbsp;{{ data.status }}</div>
      </mat-card-content>     
    </mat-card>
  </div>
