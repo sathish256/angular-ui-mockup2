@@ -3,12 +3,12 @@
     <h1>My Application</h1>
   </div>
 </div>
-<div class="col-xs-12 col-sm-3">
+<div class="col-xs-12 col-md-3">
   <div class="row">
-    <div class="col-xs-3">
+    <div class="col-xs-2">
       <img class="thumbnail" src="../assets/profile_pic.png" alt="image.png">
     </div>
-    <div class="col-xs-9">
+    <div class="col-xs-offset-1 col-xs-9">
       <div class="panel panel-default">
         <div class="panel-body">
           <span>{{ user.firstName + ' ' + user.lastName }}</span>
@@ -33,61 +33,87 @@
     </a>
   </div>
 </div>
-<div class="col-xs-12 col-sm-6 col-md-9">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3>Task Assignment Dashboard</h3>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <td>Type #</td>
-          <td>BP Number</td>
-          <td>Loan Number</td>
-          <td>Description</td>
-          <td>Documents</td>
-          <td>Amount</td>
-          <td>Status</td>
-        </thead>
-        <tbody>
-          <tr>
-            <td>D</td>
-            <td>123456</td>
-            <td>LN12345</td>
-            <td>Inmobiliaria Valle Verde Limitada</td>
-            <td>15</td>
-            <td>60,000</td>
-            <td>Operations</td>
-          </tr>
-          <tr>
-            <td>L</td>
-            <td>123456</td>
-            <td>LN12345</td>
-            <td>Inmobiliaria Valle Verde Limitada</td>
-            <td>3</td>
-            <td>600,000</td>
-            <td>VP Review</td>
-          </tr>
-          <tr>
-            <td>E</td>
-            <td></td>
-            <td></td>
-            <td>Replacement Office Chair</td>
-            <td>1</td>
-            <td>300</td>
-            <td>Jaime Mendoza</td>
-          </tr>
-          <tr>
-            <td>R</td>
-            <td></td>
-            <td></td>
-            <td>Disbursement Issue</td>
-            <td>0</td>
-            <td></td>
-            <td>Jaime Mendoza</td>
-          </tr>
-        </tbody>
-      </table>
+<div fxHide fxShow.gt-md>
+  <div class="col-lg-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Task Assignment Dashboard</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <td>Type #</td>
+            <td>BP Number</td>
+            <td>Loan Number</td>
+            <td>Description</td>
+            <td>Documents</td>
+            <td>Amount</td>
+            <td>Status</td>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of tempData">
+              <td>{{ data.type }}</td>
+              <td>{{ data.bpNumber }}</td>
+              <td>{{ data.loanNumber }}</td>
+              <td>{{ data.description }}</td>
+              <td>{{ data.documents }}</td>
+              <td>{{ data.amount }}</td>
+              <td>{{ data.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+</div>
+<div fxHide.xs fxHide.gt-md>
+  <div class="col-sm-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Assignment</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <td>Type #</td>
+            <td>Description</td>
+            <td>Status</td>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of tempData">
+              <td>{{ data.type }}</td>
+              <td>
+                <div class="row">
+                  <span class="pull-right" style="margin-right: 20px">{{ data.amount }}</span>
+                  <span>{{ data.bpNumber }}</span>
+                  <span *ngIf="data.bpNumber">{{ ', ' }}</span>
+                  <span>{{ data.loanNumber }}</span>
+                </div>
+                <div class="row">{{ data.description }}</div>
+                <div class="row">{{ 'Documents: ' + data.documents }}</div>
+              </td>
+              <td>{{ data.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxHide.gt-xs>
+ <div class="col-xs-offset-1 col-xs-10">
+   <mat-card *ngFor="let data of tempData" style="margin-bottom: 10px">
+     <mat-card-content>
+        <div class="row" style="padding: 0px 20px">
+          <span>{{ data.type }}&nbsp;{{ data.bpNumber }}</span>
+          <span *ngIf="data.bpNumber">{{ ', ' }}</span>
+          <span>{{ data.loanNumber }}</span>
+        </div>
+        <div class="row" style="padding: 0px 20px">{{ data.amount }}</div>
+        <div class="row" style="padding: 0px 20px">{{ data.description }}</div>
+        <div class="row" style="padding: 0px 20px">{{ 'Document: ' + data.documents }}</div>
+        <div class="row" style="padding: 0px 20px">{{ data.status }}</div>
+     </mat-card-content>     
+   </mat-card>
+ </div>
 </div>
