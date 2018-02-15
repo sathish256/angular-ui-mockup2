@@ -1,0 +1,9 @@
+<span>{{ value.type }} &nbsp; {{ value.bpNumber }} &nbsp; {{ value.loanNumber }}</span>
+<br/>
+<div *ngIf="(gridWidth < 800) && value.amount">
+    <span>Amount: {{ value.amount | currency }}</span><br/>
+</div>
+<div *ngIf="gridWidth < 700">
+    <span>{{ value.description }}</span><br/>
+</div>
+<span *ngIf="gridWidth < 600">Documents: {{ value.documents }}</span>

@@ -1,0 +1,67 @@
+<section class="col-xs-12 col-md-3">
+  <div class="col-xs-12">
+    <div class="col-xs-3 col-md-4">
+      <img class="thumbnail" src="../assets/profile_pic.png" alt="image.png" />
+    </div>
+    <div class="col-xs-9 col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <span>{{ userDetails.firstName + ' ' + userDetails.lastName }}</span>
+          <br/>
+          <span class="pull-right">Tasks: {{ userDetails.tasks }}</span>
+          <div *ngFor="let role of userDetails.roles">
+            <span>{{ role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="list-group">
+      <a class="list-group-item">All Assignments</a>
+      <a class="list-group-item">My Assignments</a>
+      <a class="list-group-item" (click)="changeWorkflow()">{{ workflow }}</a>
+      <a class="list-group-item">Type
+        <div class="col-xs-8 pull-right">
+          <select class="margin-top-7 form-control"></select>
+        </div>
+      </a>
+      <a class="list-group-item">Search
+        <div class="col-xs-8 pull-right">
+          <select class="margin-top-7 form-control"></select>
+        </div>
+      </a>
+      <a class="list-group-item">Tools
+        <div class="col-xs-8 pull-right">
+          <select class="margin-top-7 form-control"></select>
+        </div>
+      </a>
+      <a class="list-group-item">Start a
+        <div class="col-xs-8 pull-right">
+          <select class="margin-top-7 form-control"></select>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<div fxHide fxShow.gt-xs>
+  <large-view-component [rowData]="tempData"></large-view-component>
+</div>
+<div fxHide.gt-xs>
+  <div class="col-xs-offset-1 col-xs-10">
+    <mat-card *ngFor="let data of tempData" style="margin-bottom: 10px">
+      <mat-card-content>
+        <div class="row" style="padding: 0px 20px">
+          <span>{{ data.type }}&nbsp;{{ data.bpNumber }}</span>
+          <span *ngIf="data.bpNumber">{{ ', ' }}</span>
+          <span>{{ data.loanNumber }}</span>
+        </div>
+        <div class="row" style="padding: 0px 20px">{{ data.amount }}</div>
+        <div class="row" style="padding: 0px 20px">{{ data.description }}</div>
+        <div class="row" style="padding: 0px 20px">{{ 'Document: ' + data.documents }}</div>
+        <div class="row" style="padding: 0px 20px">
+          <i class="glyphicon-one-fine-full-dot" [ngStyle]="{'color': data.color}"></i>&nbsp;{{ data.status }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
