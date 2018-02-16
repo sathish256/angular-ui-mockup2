@@ -4,7 +4,7 @@ import { TempData } from '../../models/tempData';
 import { TodoService } from '../../services/todos.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
