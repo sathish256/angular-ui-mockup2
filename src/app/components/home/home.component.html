@@ -18,8 +18,8 @@
   </div>
   <div class="col-xs-12">
     <div class="list-group">
-      <a class="list-group-item">All Assignments</a>
-      <a class="list-group-item">My Assignments</a>
+      <a class="list-group-item" (click)="showAllAssignment(true)">All Assignments</a>
+      <a class="list-group-item" (click)="showAllAssignment(false)">My Assignments</a>
       <a class="list-group-item" (click)="changeWorkflow()">{{ workflow }}</a>
       <a class="list-group-item">Type
         <div class="col-xs-8 pull-right">
@@ -45,7 +45,7 @@
   </div>
 </section>
 <div fxHide fxShow.gt-xs>
-  <large-view-component [rowData]="tempData"></large-view-component>
+  <large-view-component [rowData]="tempData" [isShowAll]="isShowAll"></large-view-component>
 </div>
 <div fxHide.gt-xs>
   <div class="col-xs-offset-1 col-xs-10">

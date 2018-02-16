@@ -11,13 +11,19 @@ export class HomeComponent implements OnInit {
   userDetails: User;
   tempData: TempData[];
   workflow: string;
+  isShowAll: boolean;
 
   constructor( @Inject(TodoService) public todoService: TodoService) {
     this.todoService.getUserDetails().subscribe((userDetails: User) => {
       this.userDetails = userDetails;
+      this.isShowAll = true;
     });
 
     this.workflow = "Showing Active Workflows";
+  }
+
+  showAllAssignment(value: boolean) {
+    this.isShowAll = value;
   }
 
   changeWorkflow(): void {

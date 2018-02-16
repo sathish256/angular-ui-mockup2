@@ -1,5 +1,5 @@
 import { AssignmentTemplateRenderer } from "../cell-renderers/assignment.component";
-import { Component, Inject, Input } from "@angular/core";
+import { Component, Inject, Input, OnChanges } from "@angular/core";
 import { TempData } from "../../models/tempData";
 import { GridOptions } from "ag-grid/main";
 import { StatusTemplateRenderer } from "../cell-renderers/status.component";
@@ -9,17 +9,31 @@ import { AmountTemplateRenderer } from "../cell-renderers/amount.component";
     selector: 'large-view-component',
     templateUrl: './large-view.component.html'
 })
-export class LargeViewComponent {
+export class LargeViewComponent implements OnChanges {
     @Input()
     rowData: TempData[];
     private gridApi;
     private gridColumnApi;
     private columnDefs;
+    @Input()
+    private isShowAll;
     public gridOptions: GridOptions;
 
     constructor() {
         this.columnDefs = this.createColumnDefs();
         this.gridOptions = <GridOptions>{};
+        this.gridOptions.isExternalFilterPresent = this.isExternalFilterPresent.bind(this);
+        this.gridOptions.doesExternalFilterPass = this.doesExternalFilterPass.bind(this);
+    }
+
+    private isExternalFilterPresent(): boolean{
+        return true;
+    }
+
+    private doesExternalFilterPass(node) {
+        if(this.isShowAll)
+            return true;
+        else return node.data.status == 'Jaime Mendoza';
     }
 
     private setRowHeight(value) {
@@ -38,7 +52,7 @@ export class LargeViewComponent {
             { headerName: 'Description', field: 'description', width: 250 },
             { headerName: 'Documents', field: 'documents', width: 120 },
             { headerName: 'Amount', field: 'amount', width: 100, cellRendererFramework: AmountTemplateRenderer, cellStyle: { 'text-align': 'right' } },
-            { headerName: 'Status', field: 'status', width: 180, cellRendererFramework: StatusTemplateRenderer }
+            { headerName: 'Status', field: 'status', width: 180, cellRendererFramework: StatusTemplateRenderer, filter: 'agTextColumnFilter' }
         ]
         return columnDefs;
     }
@@ -87,5 +101,9 @@ export class LargeViewComponent {
         this.onGridSizeChanged(params);
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
+    }
+
+    ngOnChanges(changes) {
+        this.gridApi.onFilterChanged();
     }
 }
