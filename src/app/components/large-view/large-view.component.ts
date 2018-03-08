@@ -59,7 +59,7 @@ export class LargeViewComponent implements OnChanges {
             { headerName: 'Description', field: 'description', width: 250 },
             { headerName: 'Documents', field: 'documents', width: 120 },
             { headerName: 'Amount', field: 'amount', width: 100, cellRendererFramework: AmountTemplateRenderer, cellStyle: { 'text-align': 'right' } },
-            { headerName: 'Status', field: 'status', width: 180, cellRendererFramework: StatusTemplateRenderer, filter: 'agTextColumnFilter' }
+            { headerName: 'Status', field: 'status', width: 180, cellRendererFramework: StatusTemplateRenderer }
         ]
         return columnDefs;
     }
