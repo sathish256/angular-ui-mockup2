@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   tempData: TempData[];
   workflow: string;
   isShowAll: boolean;
+  searchKeyword: string;
   
   constructor( @Inject(TodoService) public todoService: TodoService, private router: Router) {
     this.todoService.getUserDetails().subscribe((userDetails: User) => {
@@ -25,10 +26,17 @@ export class HomeComponent implements OnInit {
 
   showAllAssignment(value: boolean) {
     this.isShowAll = value;
+    if(value)
+      this.searchKeyword = null;
+    else this.searchKeyword = this.userDetails.firstName;    
+  }
+
+  searchFilter(value: string) {
+    this.searchKeyword = value;
   }
 
   startA(value: string) {
-    this.router.navigateByUrl('/assignment');
+    this.router.navigateByUrl(`/${value}`);
   }
 
   changeWorkflow(): void {

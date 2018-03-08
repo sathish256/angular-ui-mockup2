@@ -34,9 +34,7 @@
       </a>
       <a class="list-group-item">Search
         <div class="col-xs-8 pull-right">
-          <select class="margin-top-7 form-control">
-            <option value="" selected disabled hidden>Choose...</option>
-          </select>
+          <input type="text" (keyup)="searchFilter($event.target.value)" class="margin-top-7 form-control" placeholder="Enter search key"/>
         </div>
       </a>
       <a class="list-group-item">Tools
@@ -58,7 +56,7 @@
   </div>
 </nav>
 <div fxHide fxShow.gt-xs>
-  <large-view-component [rowData]="tempData" [isShowAll]="isShowAll"></large-view-component>
+  <large-view-component [rowData]="tempData" [isShowAll]="isShowAll" [searchKeyword]="searchKeyword"></large-view-component>
 </div>
 <div fxHide.gt-xs>
   <div class="col-xs-offset-1 col-xs-10">

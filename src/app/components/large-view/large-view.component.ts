@@ -1,5 +1,5 @@
 import { AssignmentTemplateRenderer } from "../cell-renderers/assignment.component";
-import { Component, Inject, Input, OnChanges } from "@angular/core";
+import { Component, Inject, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { TempData } from "../../models/tempData";
 import { GridOptions } from "ag-grid/main";
 import { StatusTemplateRenderer } from "../cell-renderers/status.component";
@@ -17,6 +17,8 @@ export class LargeViewComponent implements OnChanges {
     private columnDefs;
     @Input()
     private isShowAll;
+    @Input()
+    private searchKeyword;
     public gridOptions: GridOptions;
 
     constructor() {
@@ -31,9 +33,14 @@ export class LargeViewComponent implements OnChanges {
     }
 
     private doesExternalFilterPass(node) {
-        if(this.isShowAll)
-            return true;
-        else return node.data.status == 'Jaime Mendoza';
+        let values = Object.values(node.data).filter(n => n);
+        let keyFound;
+        if(this.searchKeyword) {
+            let regExp = new RegExp(this.searchKeyword, 'i');
+            keyFound = values.filter(value => value.toString().match(regExp)).length > 0;            
+        } else if(this.isShowAll)
+            keyFound = true;
+        return (keyFound ? true : false);
     }
 
     private setRowHeight(value) {
@@ -103,7 +110,7 @@ export class LargeViewComponent implements OnChanges {
         this.gridColumnApi = params.columnApi;
     }
 
-    ngOnChanges(changes) {
+    ngOnChanges(changes: SimpleChanges) {
         this.gridApi.onFilterChanged();
     }
 }
