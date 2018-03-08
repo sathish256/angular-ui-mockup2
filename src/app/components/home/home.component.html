@@ -10,10 +10,10 @@
     <div class="col-xs-9 col-md-8">
       <div class="panel panel-default">
         <div class="panel-body">
-          <span>{{ userDetails.firstName + ' ' + userDetails.lastName }}</span>
+          <span>{{ userDetails?.firstName + ' ' + userDetails?.lastName }}</span>
           <br/>
-          <span class="pull-right" (click)="showAllAssignment(false)">Tasks: {{ userDetails.tasks }}</span>
-          <div *ngFor="let role of userDetails.roles">
+          <span class="pull-right" (click)="showAllAssignment(false)">Tasks: {{ userDetails?.tasks }}</span>
+          <div *ngFor="let role of userDetails?.roles">
             <span>{{ role }}</span>
           </div>
         </div>

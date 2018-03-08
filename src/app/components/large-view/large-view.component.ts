@@ -111,6 +111,7 @@ export class LargeViewComponent implements OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        this.gridApi.onFilterChanged();
+        if(this.gridApi)
+            this.gridApi.onFilterChanged();
     }
 }
