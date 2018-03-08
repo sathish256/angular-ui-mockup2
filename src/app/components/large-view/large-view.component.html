@@ -1,15 +1,16 @@
-<header>
-    <h1>My Application</h1>
-</header>
-<section class="margin-top90">    
+<section>    
     <div class="col-xs-12 col-md-9">
         <div class="panel">
-            <div class="panel-heading">
+            <div class="panel-heading panel-olive-green">
                 <h4>Task Assignment Dashboard</h4>
             </div>
             <div id="grid-wrapper">
-                <ag-grid-angular #agGrid class="ag-theme-fresh" [enableFilter]="true" style="width: 100%; height: 300px" enableSorting [rowData]="rowData" [columnDefs]="columnDefs" (gridSizeChanged)="onGridSizeChanged($event)" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)"></ag-grid-angular>
+                <ag-grid-angular #agGrid class="ag-theme-fresh" [enableFilter]="true" style="width: 100%; height: 300px" enableSorting [rowData]="rowData"
+                    [columnDefs]="columnDefs" (gridSizeChanged)="onGridSizeChanged($event)" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)"></ag-grid-angular>
             </div>
         </div>
     </div>
 </section>
+<footer>
+    &#169; Copyright. All Rights Reserved.
+</footer>

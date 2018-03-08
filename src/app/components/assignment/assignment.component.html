@@ -1,0 +1,113 @@
+<header>
+  <h1 [routerLink]="['/home']">LAAD</h1>
+</header>
+<br>
+<section class="col-xs-12">  
+  <div class="panel panel-primary margin-bottom5">
+    <div class="panel-heading">
+      <h3>AML Recommendation</h3>
+    </div>
+    <div class="panel-body">
+      <span class="important">*&nbsp;required</span>
+      <form>
+        <div class="form-group col-xs-12 col-sm-6">
+          <p>
+            <span class="important">*</span>&nbsp;Field Officer</p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-menu-hamburger"></i>
+            </span>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-6">
+          <p><span class="important">*</span>&nbsp;BP Number</p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-menu-hamburger"></i>
+            </span>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+        <div class="form-group col-xs-6 col-sm-3">
+          <p>New/Exisiting</p>
+          <label class="radio-inline">
+            <input type="radio" name="newOrExisting" checked> New
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="newOrExisting"> Exisiting
+          </label>
+        </div>
+        <div class="form-group col-xs-6 col-sm-3">
+          <p><span class="important">*</span>&nbsp;Loan Type</p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-menu-hamburger"></i>
+            </span>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group col-xs-6 col-sm-3">
+          <p><span class="important">*</span>&nbsp;Amount</p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-usd"></i>
+            </span>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group col-xs-6 col-sm-3">
+          <p><span class="important">*</span>&nbsp;Change of Terms</p>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+        <div class="form-group col-xs-12">
+          <p><span class="important">*</span>&nbsp;Product</p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-pencil"></i>
+            </span>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group col-xs-12">
+          <p><span class="important">*</span>&nbsp;Purpose of Loan</p>
+          <textarea class="form-control" rows="5"></textarea>
+        </div>
+        <div class="form-group col-xs-12 col-sm-6">
+          <p>Total Exposure</p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-usd"></i>
+            </span>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-6">
+          <p>Group Exposure</p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-usd"></i>
+            </span>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+        <div class="form-group col-xs-12">
+          <label class="pull-right checkbox-inline">
+            <input type="checkbox"> Important Comment
+          </label>
+          <p>Comments</p>
+          <textarea class="form-control" rows="5"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<footer>
+  &#169; Copyright. All Rights Reserved.
+</footer>

@@ -1,4 +1,8 @@
-<section class="col-xs-12 col-md-3">
+<header>
+  <h1>LAAD</h1>
+</header>
+<br>
+<nav class="col-xs-12 col-md-3">
   <div class="col-xs-12">
     <div class="col-xs-3 col-md-4">
       <img class="thumbnail" src="../assets/profile_pic.png" alt="image.png" />
@@ -23,27 +27,36 @@
       <a class="list-group-item" (click)="changeWorkflow()">{{ workflow }}</a>
       <a class="list-group-item">Type
         <div class="col-xs-8 pull-right">
-          <select class="margin-top-7 form-control"></select>
+          <select class="margin-top-7 form-control">
+            <option value="" selected disabled hidden>Choose...</option>
+          </select>
         </div>
       </a>
       <a class="list-group-item">Search
         <div class="col-xs-8 pull-right">
-          <select class="margin-top-7 form-control"></select>
+          <select class="margin-top-7 form-control">
+            <option value="" selected disabled hidden>Choose...</option>
+          </select>
         </div>
       </a>
       <a class="list-group-item">Tools
         <div class="col-xs-8 pull-right">
-          <select class="margin-top-7 form-control"></select>
+          <select class="margin-top-7 form-control">
+            <option value="" selected disabled hidden>Choose...</option>
+          </select>
         </div>
       </a>
       <a class="list-group-item">Start a
         <div class="col-xs-8 pull-right">
-          <select class="margin-top-7 form-control"></select>
+          <select class="margin-top-7 form-control" (change)="startA($event.target.value)">
+            <option value="" selected disabled hidden>Choose...</option>
+            <option value="assignment">Assignment</option>
+          </select>
         </div>
       </a>
     </div>
   </div>
-</section>
+</nav>
 <div fxHide fxShow.gt-xs>
   <large-view-component [rowData]="tempData" [isShowAll]="isShowAll"></large-view-component>
 </div>

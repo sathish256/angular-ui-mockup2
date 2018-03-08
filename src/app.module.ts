@@ -1,6 +1,7 @@
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './app/components/home/home.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -14,6 +15,7 @@ import { AmountTemplateRenderer } from './app/components/cell-renderers/amount.c
 import { AppComponent } from './app/components/app.component';
 import { AppRouteModule } from './app/components/app.route.module';
 import { LoginComponent } from './app/components/login/login.component';
+import { AssignmentComponent } from './app/components/assignment/assignment.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { LoginComponent } from './app/components/login/login.component';
     LoginComponent,
     HomeComponent,
     LargeViewComponent,
+    AssignmentComponent,
     AssignmentTemplateRenderer,
     StatusTemplateRenderer,
     AmountTemplateRenderer
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRouteModule,
     HttpClientModule,

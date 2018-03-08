@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { TempData } from '../../models/tempData';
 import { TodoService } from '../../services/todos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,8 @@ export class HomeComponent implements OnInit {
   tempData: TempData[];
   workflow: string;
   isShowAll: boolean;
-
-  constructor( @Inject(TodoService) public todoService: TodoService) {
+  
+  constructor( @Inject(TodoService) public todoService: TodoService, private router: Router) {
     this.todoService.getUserDetails().subscribe((userDetails: User) => {
       this.userDetails = userDetails;
       this.isShowAll = true;
@@ -24,6 +25,10 @@ export class HomeComponent implements OnInit {
 
   showAllAssignment(value: boolean) {
     this.isShowAll = value;
+  }
+
+  startA(value: string) {
+    this.router.navigateByUrl('/assignment');
   }
 
   changeWorkflow(): void {
