@@ -12,7 +12,7 @@
         <div class="panel-body">
           <span>{{ userDetails.firstName + ' ' + userDetails.lastName }}</span>
           <br/>
-          <span class="pull-right">Tasks: {{ userDetails.tasks }}</span>
+          <span class="pull-right" (click)="showAllAssignment(false)">Tasks: {{ userDetails.tasks }}</span>
           <div *ngFor="let role of userDetails.roles">
             <span>{{ role }}</span>
           </div>
