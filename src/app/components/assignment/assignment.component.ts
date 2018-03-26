@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 
-@Component({
-  selector: 'app-assignment',
+@Component({  
   templateUrl: './assignment.component.html'
 })
 export class AssignmentComponent {}
